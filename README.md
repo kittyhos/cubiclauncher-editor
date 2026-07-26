@@ -20,7 +20,7 @@ Está pensado para funcionar como sitio estático en **GitHub Pages**: no necesi
 
 ```bash
 # Cloná o descargá el repositorio
-cd cubic-theme-studio
+cd cubiclauncher-editor
 
 # Serví los archivos estáticos con Python
 python3 -m http.server 8080
