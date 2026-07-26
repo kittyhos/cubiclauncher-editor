@@ -1,0 +1,265 @@
+/* Buttons
+   ========================================================================== */
+.btn {
+  border: 1px solid transparent;
+  border-radius: var(--studio-radius-sm);
+  padding: 0.4rem 0.7rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.12s ease;
+  white-space: nowrap;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn-primary {
+  background: var(--studio-accent);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--studio-accent-hover);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--studio-text);
+  border-color: var(--studio-border);
+}
+
+.btn-secondary:hover {
+  background: var(--studio-card);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--studio-muted);
+  border-color: transparent;
+}
+
+.btn-ghost:hover {
+  color: var(--studio-text);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* Form Panel
+   ========================================================================== */
+.form-panel {
+  padding: 1.25rem 1.5rem;
+  overflow-y: auto;
+  min-width: 0;
+  background: var(--studio-bg);
+}
+
+.form-section {
+  display: none;
+  max-width: 700px;
+  animation: fadeIn 0.2s ease;
+}
+
+.form-section.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.section-head {
+  margin-bottom: 1rem;
+}
+
+.section-head h2 {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+}
+
+.section-desc {
+  margin: 0.2rem 0 0;
+  font-size: 0.78rem;
+  color: var(--studio-muted);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.75rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.field > span {
+  font-size: 0.6rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--studio-muted);
+}
+
+.required {
+  color: var(--studio-accent);
+}
+
+.field input,
+.field select,
+.field textarea,
+#inject-css,
+.mini-input {
+  background: var(--studio-card);
+  border: 1px solid var(--studio-border);
+  border-radius: var(--studio-radius-sm);
+  padding: 0.45rem 0.6rem;
+  color: var(--studio-text);
+  font-size: 0.84rem;
+  outline: none;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.field input:hover,
+.field select:hover,
+.field textarea:hover,
+#inject-css:hover {
+  border-color: #3a2f4d;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus,
+#inject-css:focus {
+  border-color: rgba(124, 58, 237, 0.5);
+  background: #211b2e;
+}
+
+.field small {
+  color: var(--studio-muted);
+  font-size: 0.7rem;
+}
+
+.field-wide {
+  grid-column: 1 / -1;
+}
+
+.color-field {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  align-items: end;
+  gap: 0.5rem;
+}
+
+.color-field > span {
+  grid-column: 1 / -1;
+}
+
+.color-field input[type="color"] {
+  padding: 0.15rem;
+  height: 2.1rem;
+  cursor: pointer;
+  border-radius: var(--studio-radius-sm);
+}
+
+.file-field input[type="file"] {
+  padding: 0.4rem;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+#inject-css {
+  width: 100%;
+  resize: vertical;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  min-height: 140px;
+}
+
+.drawer-section select {
+  background: var(--studio-card);
+  border: 1px solid var(--studio-border);
+  border-radius: var(--studio-radius-sm);
+  padding: 0.45rem 0.6rem;
+  color: var(--studio-text);
+  font-size: 0.84rem;
+  outline: none;
+  width: 100%;
+}
+
+.drawer-section select:focus {
+  border-color: rgba(124, 58, 237, 0.5);
+}
+
+/* Fonts
+   ========================================================================== */
+.font-row {
+  background: var(--studio-card);
+  border: 1px solid var(--studio-border);
+  border-radius: var(--studio-radius-sm);
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.font-row .form-grid {
+  margin-bottom: 0.6rem;
+}
+
+/* Modal
+   ========================================================================== */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  z-index: 200;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  backdrop-filter: blur(4px);
+}
+
+.modal.open {
+  display: flex;
+}
+
+.modal-content {
+  background: var(--studio-card);
+  border: 1px solid var(--studio-border);
+  border-radius: var(--studio-radius);
+  padding: 1.25rem;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+}
+
+.modal-content h3 {
+  margin: 0 0 0.85rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.modal-content textarea {
+  width: 100%;
+  background: var(--studio-bg);
+  border: 1px solid var(--studio-border);
+  border-radius: var(--studio-radius-sm);
+  color: var(--studio-text);
+  padding: 0.65rem;
+  font-family: monospace;
+  font-size: 0.78rem;
+  resize: vertical;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 0.85rem;
+}

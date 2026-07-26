@@ -1,0 +1,54 @@
+:root {
+  --studio-bg: #0a0610;
+  --studio-surface: #130e1c;
+  --studio-card: #1c1626;
+  --studio-border: #2e233f;
+  --studio-text: #f0eef5;
+  --studio-muted: #7d6d99;
+  --studio-accent: #6d28d9;
+  --studio-accent-hover: #7c3aed;
+  --studio-radius: 8px;
+  --studio-radius-sm: 4px;
+  --studio-font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  background: var(--studio-bg);
+  color: var(--studio-text);
+  font-family: var(--studio-font);
+  font-size: 14px;
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--studio-border);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #333344;
+}

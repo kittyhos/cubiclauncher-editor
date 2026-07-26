@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Cubiclauncher-Editor: creador visual de temas para CubicLauncher.">
+  <meta name="theme-color" content="#6d28d9">
+  <title>Cubiclauncher-Editor</title>
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="studio">
+    <header class="studio-header">
+      <div class="studio-brand">
+        <span class="brand-dot"></span>
+        <span class="brand-name">Cubiclauncher-Editor</span>
+      </div>
+
+      <div class="meta-fields">
+        <label>
+          <span>Nombre</span>
+          <input type="text" id="meta-name" placeholder="Mi Tema" required>
+        </label>
+        <label>
+          <span>Autor</span>
+          <input type="text" id="meta-author" placeholder="Cubiclauncher-editor">
+        </label>
+        <label class="meta-desc">
+          <span>Descripción</span>
+          <input type="text" id="meta-description" placeholder="Este tema fue generado por la herramienta Cubiclauncher-editor creado por kittyhos">
+        </label>
+      </div>
+
+      <div class="studio-actions">
+        <button id="btn-edit" class="btn btn-ghost">Editar paleta</button>
+        <button id="btn-download-zip" class="btn btn-primary">Descargar tema</button>
+        <button id="btn-download-pr" class="btn btn-secondary">Estructura PR</button>
+      </div>
+    </header>
+
+    <div class="studio-body">
+      <aside class="preview-panel" id="preview-panel">
+        <div class="preview-bar">
+          <span class="preview-title">Vista previa</span>
+          <span class="preview-sub">CubicLauncher</span>
+        </div>
+        <div class="preview-frame" id="preview-frame">
+          <div class="drop-overlay" id="drop-zone">
+            <div class="drop-content">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+              <p>Arrastrá una imagen de fondo aquí</p>
+
+              <div class="blur-options">
+                <span class="blur-label">Efecto del fondo</span>
+                <div class="blur-chips" id="blur-chips">
+                  <button type="button" class="blur-chip active" data-blur="0" data-opacity="1">Sin blur</button>
+                  <button type="button" class="blur-chip" data-blur="4" data-opacity="0.75">Sutil</button>
+                  <button type="button" class="blur-chip" data-blur="10" data-opacity="0.5">Medio</button>
+                  <button type="button" class="blur-chip" data-blur="22" data-opacity="0.35">Difuso</button>
+                </div>
+              </div>
+
+              <button type="button" id="btn-browse" class="btn btn-secondary">Elegir archivo</button>
+              <input type="file" id="bg-file" accept="image/png,image/jpeg,image/webp,image/gif" hidden>
+            </div>
+          </div>
+
+          <aside class="preview-sidebar">
+            <div class="preview-sidebar-header">
+              <h1>CUBICLAUNCHER</h1>
+            </div>
+
+            <div class="preview-sidebar-content">
+              <span class="section-label">TUS INSTANCIAS</span>
+              <div class="instance-list">
+                <div class="instance-item active">
+                  <div class="instance-icon">⛏</div>
+                  <span class="instance-name">Survival</span>
+                </div>
+                <div class="instance-item">
+                  <div class="instance-icon">🧱</div>
+                  <span class="instance-name">Creativo</span>
+                </div>
+                <div class="instance-item">
+                  <div class="instance-icon">⚔</div>
+                  <span class="instance-name">PvP</span>
+                </div>
+                <div class="instance-item">
+                  <div class="instance-icon">🧪</div>
+                  <span class="instance-name">Test</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="preview-sidebar-sections">
+              <div class="tools-group">
+                <button class="tools-btn">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                  <span>Crear instancia</span>
+                </button>
+                <button class="tools-btn">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                  <span>Descargar versiones</span>
+                </button>
+                <button class="tools-btn">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                  <span>Configuración</span>
+                </button>
+              </div>
+
+              <div class="user-profile">
+                <div class="user-avatar">S</div>
+                <div class="user-info">
+                  <span class="user-name">Steve</span>
+                  <span class="user-status premium">Premium</span>
+                </div>
+              </div>
+            </div>
+          </aside>
+
+          <main class="preview-main">
+            <div class="preview-background-overlay"></div>
+
+            <header class="preview-instance-header">
+              <div class="header-bg"></div>
+              <div class="header-content">
+                <div class="title-row">
+                  <div class="title-left">
+                    <div class="instance-icon">⛏</div>
+                    <h1 class="instance-title">Survival</h1>
+                  </div>
+                  <div class="actions-row">
+                    <button class="action-btn">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+                      <span class="action-label">Carpeta</span>
+                    </button>
+                    <button class="action-btn">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                      <span class="action-label">Mods</span>
+                    </button>
+                    <button class="action-btn">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                      <span class="action-label">Screenshots</span>
+                    </button>
+                    <button class="action-btn">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+                      <span class="action-label">Recursos</span>
+                    </button>
+                    <button class="action-btn">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                      <span class="action-label">Logs</span>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="extension-row">
+                  <div class="extension-left">
+                    <span class="meta-chip">
+                      <span class="loader-icon">F</span>
+                      <span>1.20.4 · Forge</span>
+                    </span>
+                    <span class="meta-sep">·</span>
+                    <span class="inline-status status-started">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                      <span class="status-text">Iniciado</span>
+                    </span>
+                  </div>
+                  <div class="launch-area">
+                    <button class="launch-btn">JUGAR</button>
+                  </div>
+                </div>
+
+                <div class="details-row">
+                  <div class="path-row">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+                    <span class="path-text">~/.minecraft/instances/Survival</span>
+                  </div>
+                  <div class="last-played">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    <span>Última vez: hace 2 horas</span>
+                  </div>
+                </div>
+              </div>
+            </header>
+
+            <div class="preview-tab-content">
+              <div class="nav-card">
+                <div class="nav-card-header">
+                  <span class="nav-card-title">Detalles</span>
+                </div>
+                <div class="nav-items">
+                  <button class="nav-item">
+                    <span class="nav-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></span>
+                    <span class="nav-label">Mods</span>
+                    <span class="nav-chevron"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></span>
+                  </button>
+                  <button class="nav-item">
+                    <span class="nav-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></span>
+                    <span class="nav-label">Recursos</span>
+                    <span class="nav-chevron"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></span>
+                  </button>
+                  <button class="nav-item">
+                    <span class="nav-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></span>
+                    <span class="nav-label">Screenshots</span>
+                    <span class="nav-chevron"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></span>
+                  </button>
+                  <button class="nav-item">
+                    <span class="nav-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M21 12l-9 5-9-5"/><path d="M3 17l9 5 9-5"/></svg></span>
+                    <span class="nav-label">Shaderpacks</span>
+                    <span class="nav-chevron"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </main>
+        </div>
+      </aside>
+
+      <aside class="editor-drawer" id="editor-drawer">
+        <div class="drawer-head">
+          <h2>Editar paleta</h2>
+          <button type="button" id="btn-close-editor" class="close-editor" aria-label="Cerrar editor">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+
+        <div class="drawer-section">
+          <h3>Estilo del tema</h3>
+          <label class="field">
+            <span>Modo de paleta</span>
+            <select id="theme-mode">
+              <option value="professional">Profesional</option>
+              <option value="vibrant">Vibrante</option>
+              <option value="muted">Muted / Corporativo</option>
+              <option value="high-contrast">Alto contraste</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="drawer-section">
+          <h3>Imagen de fondo</h3>
+          <div class="form-grid">
+            <label class="field field-wide file-field">
+              <span>Archivo</span>
+              <input type="text" id="bg-reference_path" placeholder="bg.webp" readonly>
+              <small>Nombre del archivo dentro del tema.</small>
+            </label>
+            <label class="field">
+              <span>Desenfoque (px)</span>
+              <input type="number" id="bg-image_blur" value="10" step="0.1" min="0">
+            </label>
+            <label class="field">
+              <span>Opacidad (0-1)</span>
+              <input type="number" id="bg-image_opacity" value="0.5" step="0.05" min="0" max="1">
+            </label>
+          </div>
+        </div>
+
+        <div class="drawer-section">
+          <h3>Acento</h3>
+          <div class="form-grid">
+            <label class="field color-field">
+              <span>Acento</span>
+              <input type="color" id="colors-accent">
+              <input type="text" id="colors-accent-text" placeholder="#e94560">
+            </label>
+            <label class="field color-field">
+              <span>Acento hover</span>
+              <input type="color" id="colors-accent-hover">
+              <input type="text" id="colors-accent-hover-text" placeholder="#ff6b81">
+            </label>
+            <label class="field color-field">
+              <span>Texto sobre acento</span>
+              <input type="color" id="colors-accent-text-field">
+              <input type="text" id="colors-accent-text-text" placeholder="#ffffff">
+            </label>
+          </div>
+        </div>
+
+        <div class="drawer-section">
+          <h3>Texto</h3>
+          <div class="form-grid">
+            <label class="field color-field">
+              <span>Primario</span>
+              <input type="color" id="text-primary">
+              <input type="text" id="text-primary-text" placeholder="#ffffff">
+            </label>
+            <label class="field color-field">
+              <span>Secundario</span>
+              <input type="color" id="text-secondary">
+              <input type="text" id="text-secondary-text" placeholder="#cccccc">
+            </label>
+            <label class="field color-field">
+              <span>Muted</span>
+              <input type="color" id="text-muted">
+              <input type="text" id="text-muted-text" placeholder="#999999">
+            </label>
+          </div>
+        </div>
+
+        <div class="drawer-section">
+          <h3>Fondos</h3>
+          <div class="form-grid">
+            <label class="field color-field">
+              <span>Principal</span>
+              <input type="color" id="backgrounds-main">
+              <input type="text" id="backgrounds-main-text" placeholder="#1a1a2e">
+            </label>
+            <label class="field color-field">
+              <span>Sidebar</span>
+              <input type="color" id="backgrounds-sidebar">
+              <input type="text" id="backgrounds-sidebar-text" placeholder="#16213e">
+            </label>
+            <label class="field color-field">
+              <span>Tarjeta</span>
+              <input type="color" id="backgrounds-card">
+              <input type="text" id="backgrounds-card-text" placeholder="#0f3460">
+            </label>
+            <label class="field color-field">
+              <span>Input</span>
+              <input type="color" id="backgrounds-input">
+              <input type="text" id="backgrounds-input-text" placeholder="#1a1a2e">
+            </label>
+          </div>
+        </div>
+
+        <div class="drawer-section">
+          <h3>Bordes</h3>
+          <div class="form-grid">
+            <label class="field color-field">
+              <span>Color</span>
+              <input type="color" id="borders-color">
+              <input type="text" id="borders-color-text" placeholder="#333333">
+            </label>
+            <label class="field">
+              <span>Radio general</span>
+              <input type="text" id="borders-radius" placeholder="8px">
+            </label>
+            <label class="field">
+              <span>Radio pequeño</span>
+              <input type="text" id="borders-radius-sm" placeholder="4px">
+            </label>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,171 @@
+.studio {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Header
+   ========================================================================== */
+.studio-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.5rem 1rem;
+  background: rgba(10, 6, 16, 0.92);
+  border-bottom: 1px solid var(--studio-border);
+  backdrop-filter: blur(12px);
+}
+
+.studio-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.brand-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--studio-accent);
+  box-shadow: 0 0 8px var(--studio-accent);
+}
+
+.brand-name {
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.2px;
+}
+
+.meta-fields {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.5rem;
+  flex: 1;
+  justify-content: center;
+  min-width: 0;
+}
+
+.meta-fields label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
+  flex: 1 1 0;
+  max-width: 220px;
+}
+
+.meta-fields label span {
+  font-size: 0.58rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--studio-muted);
+}
+
+.meta-fields label input {
+  background: var(--studio-card);
+  border: 1px solid var(--studio-border);
+  border-radius: var(--studio-radius-sm);
+  padding: 0.35rem 0.55rem;
+  color: var(--studio-text);
+  font-size: 0.8rem;
+  outline: none;
+  width: 100%;
+}
+
+.meta-fields label input:focus {
+  border-color: rgba(124, 58, 237, 0.5);
+}
+
+.meta-fields .meta-desc {
+  max-width: 320px;
+}
+
+.studio-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+/* Body Layout
+   ========================================================================== */
+.studio-body {
+  display: grid;
+  grid-template-columns: 1fr;
+  min-height: 0;
+  position: relative;
+}
+
+/* Editor Drawer
+   ========================================================================== */
+.editor-drawer {
+  position: fixed;
+  top: 48px;
+  right: 0;
+  bottom: 0;
+  width: 340px;
+  max-width: 100%;
+  background: rgba(19, 14, 28, 0.98);
+  border-left: 1px solid var(--studio-border);
+  backdrop-filter: blur(16px);
+  z-index: 80;
+  display: flex;
+  flex-direction: column;
+  padding: 0.85rem;
+  overflow-y: auto;
+  transform: translateX(100%);
+  transition: transform 0.2s ease;
+}
+
+.editor-drawer.open {
+  transform: translateX(0);
+}
+
+.drawer-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.drawer-head h2 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.close-editor {
+  background: var(--studio-card);
+  border: 1px solid var(--studio-border);
+  color: var(--studio-text);
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.drawer-section {
+  margin-bottom: 1rem;
+}
+
+.drawer-section h3 {
+  font-size: 0.66rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--studio-muted);
+  margin: 0 0 0.55rem;
+}
+
+.drawer-section .form-grid {
+  gap: 0.6rem;
+}
+
+.drawer-section .field small {
+  line-height: 1.35;
+}
