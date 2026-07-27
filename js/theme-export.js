@@ -32,12 +32,21 @@ export function generateDefinitionTOML() {
     }));
   }
 
-  ["colors", "text", "backgrounds", "borders", "shadows", "layout", "others", "backdrop"].forEach((sec) => {
+  ["colors", "text", "borders", "shadows", "layout", "others", "backdrop"].forEach((sec) => {
     const data = appContext.state[sec];
     if (Object.keys(data).length > 0) {
       parts.push(tomlSection(sec, data));
     }
   });
+
+  {
+    const bgData = { ...appContext.state.backgrounds };
+    if (Object.keys(bgData).length > 0) {
+      bgData["sidebar-gradient"] = bgData.sidebar;
+      bgData["card-gradient"] = bgData.card;
+      parts.push(tomlSection("backgrounds", bgData));
+    }
+  }
 
   appContext.state.fonts.forEach((font) => {
     parts.push("[[fonts]]");
@@ -68,8 +77,9 @@ export function generateZIP(filename, innerFolder, includeBG) {
   const folder = zip.folder(innerFolder);
   folder.file("Meta.toml", generateMetaTOML());
   folder.file("Definition.toml", generateDefinitionTOML());
-  if (appContext.state.inject.trim()) {
-    folder.file("Inject.css", appContext.state.inject);
+  const injectCSS = generateInjectCSS();
+  if (injectCSS) {
+    folder.file("Inject.css", injectCSS);
   }
   if (includeBG && appContext.bgImageFile) {
     folder.file(appContext.bgImageFile.name, appContext.bgImageFile);
@@ -77,6 +87,10 @@ export function generateZIP(filename, innerFolder, includeBG) {
   zip.generateAsync({ type: "blob" }).then((blob) => {
     saveAs(blob, filename);
   });
+}
+
+export function generateInjectCSS() {
+  return appContext.state.inject.trim();
 }
 
 export function getThemeNames() {
@@ -115,8 +129,9 @@ export async function downloadPRStructure() {
   const folder = themeZip.folder(innerFolder);
   folder.file("Meta.toml", generateMetaTOML());
   folder.file("Definition.toml", generateDefinitionTOML());
-  if (appContext.state.inject.trim()) {
-    folder.file("Inject.css", appContext.state.inject);
+  const prInjectCSS = generateInjectCSS();
+  if (prInjectCSS) {
+    folder.file("Inject.css", prInjectCSS);
   }
   if (appContext.state.background.reference_path && appContext.bgImageFile) {
     folder.file(appContext.bgImageFile.name, appContext.bgImageFile);
