@@ -162,7 +162,7 @@
   width: 220px;
   flex-shrink: 0;
   background: var(--bg-sidebar-gradient, var(--bg-sidebar));
-  border-right: 1px solid var(--border);
+  border-right: 1px solid var(--border-color);
   display: flex;
   flex-direction: column;
   padding: 14px 12px 0;
@@ -174,7 +174,7 @@
 .preview-sidebar-header {
   padding-bottom: 10px;
   margin-bottom: 6px;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--border-color);
 }
 
 .preview-sidebar-header h1 {
@@ -241,7 +241,7 @@
   justify-content: center;
   font-size: 0.78rem;
   background: var(--bg-card);
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-color);
   flex-shrink: 0;
 }
 
@@ -257,7 +257,7 @@
 }
 
 .preview-sidebar-sections {
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-color);
   border-radius: var(--border-radius-sm);
   overflow: hidden;
   width: calc(100% + 24px);
@@ -271,12 +271,12 @@
   flex-direction: column;
   gap: 3px;
   padding: 7px;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--border-color);
 }
 
 .tools-btn {
   background: transparent;
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-color);
   color: var(--text-secondary);
   padding: 6px 9px;
   border-radius: var(--border-radius-sm);
@@ -312,7 +312,7 @@
   width: 26px;
   height: 26px;
   border-radius: var(--border-radius-sm);
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-color);
   flex-shrink: 0;
   background: var(--bg-card);
   display: flex;
@@ -366,7 +366,7 @@
   inset: 0;
   z-index: 0;
   background-color: var(--bg-main);
-  background-image: var(--bg-image-url, none);
+  background-image: var(--bg-image, none);
   background-size: cover;
   background-position: center;
   filter: blur(var(--bg-image-blur, 8px)) brightness(0.4);
@@ -393,7 +393,7 @@
   backdrop-filter: blur(12px);
   -webkit-mask-image: linear-gradient(black 0%, black 30%, transparent 80%);
   mask-image: linear-gradient(black 0%, black 30%, transparent 80%);
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--border-color);
 }
 
 .preview-instance-header .header-content {
@@ -424,7 +424,7 @@
   height: 36px;
   border-radius: 6px;
   background: var(--bg-card);
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-color);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -453,8 +453,8 @@
   padding: 0 6px;
   border-radius: 7px;
   background: transparent;
-  border: 1px solid var(--border);
-  color: var(--text-tertiary);
+  border: 1px solid var(--border-color);
+  color: var(--text-muted);
   cursor: default;
   display: flex;
   align-items: center;
@@ -465,7 +465,7 @@
 .action-btn:hover {
   background: var(--bg-card);
   color: var(--text-primary);
-  border-color: var(--text-tertiary);
+  border-color: var(--text-muted);
 }
 
 .action-btn svg {
@@ -515,7 +515,7 @@
   border-radius: 5px;
   background: var(--bg-card);
   color: var(--text-secondary);
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-color);
   white-space: nowrap;
 }
 
@@ -533,7 +533,7 @@
 }
 
 .meta-sep {
-  color: var(--text-tertiary);
+  color: var(--text-muted);
   font-size: 0.7rem;
 }
 
@@ -547,7 +547,7 @@
   font-weight: 600;
 }
 
-.inline-status.status-idle { color: var(--text-tertiary); }
+.inline-status.status-idle { color: var(--text-muted); }
 .inline-status.status-starting { color: var(--color-status-starting); }
 .inline-status.status-started { color: var(--color-status-started); }
 .inline-status.status-error { color: var(--color-error); }
@@ -608,7 +608,7 @@
   align-items: center;
   gap: 12px;
   margin-top: auto;
-  color: var(--text-tertiary);
+  color: var(--text-muted);
   font-size: 0.62rem;
 }
 
@@ -644,7 +644,7 @@
   max-width: calc(100% - 36px);
   border-radius: var(--border-radius);
   background: var(--bg-card);
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-color);
   overflow: hidden;
   transition: box-shadow 0.6s ease;
 }
@@ -658,7 +658,7 @@
   align-items: center;
   gap: 7px;
   padding: 8px 12px;
-  color: var(--text-tertiary);
+  color: var(--text-muted);
   font-size: 0.64rem;
   font-weight: 600;
   letter-spacing: 0.3px;
@@ -683,7 +683,7 @@
   padding: 10px 12px;
   background: transparent;
   border: none;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid var(--border-color);
   color: var(--text-secondary);
   font-size: 0.78rem;
   font-weight: 600;

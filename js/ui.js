@@ -108,7 +108,9 @@ function updatePreview() {
   const cssVars = {
     "--bg-main": s.backgrounds.main,
     "--bg-sidebar": s.backgrounds.sidebar,
+    "--bg-sidebar-gradient": s.backgrounds.sidebar,
     "--bg-card": s.backgrounds.card,
+    "--bg-card-gradient": s.backgrounds.card,
     "--bg-item-active": s.backgrounds["item-active"],
     "--bg-overlay": s.backgrounds.overlay,
     "--bg-input": s.backgrounds.input,
@@ -138,8 +140,6 @@ function updatePreview() {
     "--font-size-lg": s.layout["font-size-lg"],
     "--backdrop-blur-dropdown": `${s.backdrop.dropdown}px`,
     "--backdrop-blur-modal": `${s.backdrop.modal}px`,
-    "--text-tertiary": s.text.muted,
-    "--border": s.borders.color,
     "--surface-input": s.backgrounds.input,
     "--surface-dropdown": s.backgrounds.sidebar,
     "--surface-selected": s.backgrounds["item-active"],
@@ -158,11 +158,11 @@ function updatePreview() {
 
   if (appContext.bgImageFile && s.background.reference_path) {
     const url = URL.createObjectURL(appContext.bgImageFile);
-    frame.style.setProperty("--bg-image-url", `url(${url})`);
+    frame.style.setProperty("--bg-image", `url(${url})`);
     frame.style.setProperty("--bg-image-blur", `${s.background.image_blur}px`);
     frame.style.setProperty("--bg-image-opacity", s.background.image_opacity);
   } else {
-    frame.style.setProperty("--bg-image-url", "none");
+    frame.style.setProperty("--bg-image", "none");
     frame.style.setProperty("--bg-image-blur", "0px");
     frame.style.setProperty("--bg-image-opacity", "0");
   }
